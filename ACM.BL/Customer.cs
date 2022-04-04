@@ -53,6 +53,7 @@ namespace ACM.BL
         public string EmailAddress { get; set; }
         public int CustomerId { get; private set; } // anyone can get the ID but only this class can set it
         public List<Address> AddressList { get; set; } // Establishes the composition and relationship between Customer and Address
+        public int CustomerType { get; set; }
 
         // Methods 
 

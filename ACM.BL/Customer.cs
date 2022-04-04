@@ -8,13 +8,14 @@ namespace ACM.BL
 {
     public class Customer // make public class so it's accessible anywhere in this application
     {
-        public Customer()
+        public Customer(): this(0) // this is called constructor chaining, use it anytime one constructor needs to call another; in this case default constructor calls parameterized constructor
         {
 
         }
         public Customer(int customerId) //constructor is special method that's executed when instance of class(object) is created
         {
             CustomerId = customerId; //this is an overloaded constructor
+            AddressList = new List<Address>();
         }
 
         public static int InstanceCount { get; set; } //static means this prop belongs to the class itself and not any object created from the class
@@ -51,6 +52,7 @@ namespace ACM.BL
         }
         public string EmailAddress { get; set; }
         public int CustomerId { get; private set; } // anyone can get the ID but only this class can set it
+        public List<Address> AddressList { get; set; } // Establishes the composition and relationship between Customer and Address
 
         // Methods 
 
@@ -83,3 +85,5 @@ namespace ACM.BL
 }
 
 //contracts/interface, with public access modifier make promise to application with data and functionality (properties and methods) with any part of application that needs them.
+
+//With composition, an object of one class is constructed with objects of another class, Address within Customer in this case
